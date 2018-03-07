@@ -2,15 +2,17 @@ from string import ascii_uppercase
 
 
 def read_field(path):
+    # Reads the field from the file.
     field = []
     with open(path, 'r') as file:
         for item in file.readlines():
             field.append(list(item.strip()))
-    print(field)
+    # print(field)
     return field
 
 
 def has_ship(field, coordinate):
+    # Сhecks whether the ship at the specified coordinates exists on the field.
     letters = ascii_uppercase
     if field[coordinate[1]-1][letters.index(coordinate[0])] == 'X':
         return print(True)
@@ -18,6 +20,7 @@ def has_ship(field, coordinate):
 
 
 def field_with_ships(field):
+    # Returns a list with all the coordinates of all ships.
     lst = []
     letters = ascii_uppercase
     # count = 0
@@ -31,6 +34,7 @@ def field_with_ships(field):
 
 
 def ship_size(lst, coord):
+    # Returns the ship size to the specified point.
     letters = ascii_uppercase
     ship_length = 1
     if coord not in lst:
@@ -59,6 +63,7 @@ def ship_size(lst, coord):
 
 
 def field_to_str(field):
+    # Writes the field to the appropriate format and displays it.
     display = ""
     for elements in field:
         display += ' '.join(elements) + '\n'
